@@ -55,7 +55,7 @@ int main( int argc, char** argv )
             int k = i + j * 4;
             Mat im_color = im_out(Rect(i * 200, j * 200, 200, 200));
             applyColorMap(im, im_color, k);
-            putText(im_color, colormap_name(k), Point(30, 180), CV_FONT_HERSHEY_DUPLEX, 0.5, Scalar::all(255), 1, CV_AA);
+            putText(im_color, colormap_name(k), Point(30, 180), FONT_HERSHEY_DUPLEX, 0.5, Scalar::all(255), 1, LINE_AA);
         }
     }
     

@@ -92,6 +92,7 @@ int main(int argc, char** argv)
       tie(frameFace, bboxes) = getFaceBox(faceNet, frame, 0.7);
 
       if(bboxes.size() == 0) {
+        imshow("Frame", frameFace);
         cout << "No face detected, checking next frame." << endl;
         continue;
       }
@@ -107,7 +108,7 @@ int main(int argc, char** argv)
         // printing gender here
         // find max element index
         // distance function does the argmax() work in C++
-        int max_index_gender = std::distance(genderPreds.begin(), max_element(genderPreds.begin(), genderPreds.end()));
+        int max_index_gender = (int)std::distance(genderPreds.begin(), max_element(genderPreds.begin(), genderPreds.end()));
         string gender = genderList[max_index_gender];
         cout << "Gender: " << gender << endl;
 
@@ -127,8 +128,8 @@ int main(int argc, char** argv)
         }
         */
 
-        // finding maximum indicd in the age_preds vector
-        int max_indice_age = std::distance(agePreds.begin(), max_element(agePreds.begin(), agePreds.end()));
+        // finding maximum indice in the age_preds vector
+        int max_indice_age = (int)std::distance(agePreds.begin(), max_element(agePreds.begin(), agePreds.end()));
         string age = ageList[max_indice_age];
         cout << "Age: " << age << endl;
         string label = gender + ", " + age; // label

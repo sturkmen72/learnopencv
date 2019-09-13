@@ -61,6 +61,7 @@ while cv.waitKey(1) < 0:
 
     frameFace, bboxes = getFaceBox(faceNet, frame)
     if not bboxes:
+        cv.imshow("Age Gender Demo", frame)
         print("No face Detected, Checking next frame")
         continue
 
